@@ -49,19 +49,34 @@
     <section id="formulario">
       <h2>Envía una postal virtual</h2>
       <form aria-label="Formulario para enviar postal">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required aria-required="true">
+        <label for="nombre">Nombre del remitente: (opcional)</label>
+        <input type="text" id="nombre" name="nombre">
 
-        <label for="email">Correo electrónico:</label>
+        <label for="nombreReceptor">Nombre del receptor: (obligatorio)</label>
+        <input type="text" id="nombreReceptor" name="nombreReceptor" required aria-required="true">
+
+        <label for="email">Correo electrónico del receptor: (obligatorio)</label>
         <input type="email" id="email" name="email" required aria-required="true">
 
-        <label for="postal">Selecciona una postal:</label>
-        <select id="postal" name="postal">
-          <option value="assets/alhambra1.png">Vista panorámica</option>
-          <option value="assets/alhambra2.png">Patio de los Leones</option>
-        </select>
+        <fieldset>
+          <legend>Selecciona una postal: (obligatorio)</legend>
+        
+          <label>
+            <input type="radio" name="postal" value="assets/alhambra1.png" required>
+            <img src="assets/alhambra1.png" alt="Vista panorámica de la Alhambra" width="300">
+          </label>
+        
+          <label>
+            <input type="radio" name="postal" value="assets/alhambra2.png" required>
+            <img src="assets/alhambra2.png" alt="Patio de los Leones" width="300">
+          </label>
+        </fieldset>
+        
 
-        <button type="submit">Enviar postal</button>
+        <label for="texto">Texto de la postal: (opcional)</label>
+        <textarea id="texto" name="texto" rows="5"></textarea>
+
+        <button type="submit" name="enviar" value="Enviar Postal">Enviar Postal</button>
       </form>
     </section>
   </main>
