@@ -1,43 +1,111 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>La Alhambra de Granada</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Alhambra de Granada</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+  </head>
 <body>
   <header>
-    <h1>La Alhambra de Granada</h1>
-    <nav aria-label="Navegación principal">
-      <ul>
-        <li><a href="#galeria">Galería</a></li>
-        <li><a href="#video">Video</a></li>
-        <li><a href="#audio">Sonido</a></li>
-        <li><a href="#formulario">Enviar postal</a></li>
-      </ul>
-    </nav>
+    <div class="header-container">
+      <div class="logo">
+        <h1>La Alhambra</h1>
+        <p class="tagline">Patrimonio de la Humanidad</p>
+      </div>
+      <nav aria-label="Navegación principal">
+        <ul>
+          <li><a href="#galeria"><i class="fas fa-images"></i> Galería</a></li>
+          <li><a href="#video"><i class="fas fa-video"></i> Video</a></li>
+          <li><a href="#audio"><i class="fas fa-volume-up"></i> Sonido</a></li>
+          <li><a href="#formulario"><i class="fas fa-envelope"></i> Postal</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
+
+  
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Descubre la magia de La Alhambra</h2>
+      <p>Joya arquitectónica de Granada y maravilla del mundo</p>
+      <a href="#galeria" class="btn btn-primary">Explorar</a>
+    </div>
+  </section>
 
   <main>
     <section id="galeria" aria-label="Galería de imágenes">
-      <h2>Galería</h2>
+      <div class="section-header">
+        <h2>Galería</h2>
+        <div class="underline"></div>
+      </div>
       <div class="galeria">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Dawn_Charles_V_Palace_Alhambra_Granada_Andalusia_Spain.jpg" alt="Vista general de la Alhambra">
-        <img src="https://www.andalucia.com/sites/default/files/MVC140210092-Alhambra-patio-de-los-leones-by-Michelle-chaplow.jpg" alt="Patio de los Leones">
+        <div class="img-container">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Dawn_Charles_V_Palace_Alhambra_Granada_Andalusia_Spain.jpg" alt="Vista general de la Alhambra">
+          <div class="overlay">
+            <span>Vista General</span>
+          </div>
+        </div>
+        <div class="img-container">
+          <img src="https://www.andalucia.com/sites/default/files/MVC140210092-Alhambra-patio-de-los-leones-by-Michelle-chaplow.jpg" alt="Patio de los Leones">
+          <div class="overlay">
+            <span>Patio de los Leones</span>
+          </div>
+        </div>
+        <div class="img-container">
+          <img src="https://www.alhambra.org/img/visita-guiada-alhambra.jpg" alt="Detalles arquitectónicos">
+          <div class="overlay">
+            <span>Detalles arquitectónicos</span>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="video" aria-label="Video promocional">
-      <h2>Video</h2>
+      <div class="section-header">
+        <h2>Video</h2>
+        <div class="underline"></div>
+      </div>
       <div class="video-wrapper">
-        <video width="560" height="315" controls>
+        
+        <video width="560" height="315" controls aria-describedby="video-desc" aria-label="Video promocional de la Alhambra">
           <source src="assets/video.mp4" type="video/mp4">
+          <track kind="captions" src="assets/video-captions.vtt" srclang="es" label="Español">
+          <track kind="descriptions" src="assets/video-audio-desc.vtt" srclang="es" label="Descripción de audio">
           Tu navegador no soporta la etiqueta de video.
         </video>
+        <div id="video-desc">
+          <strong>Descripción del video:</strong>
+          <p>Video promocional de la Alhambra con descripciones de audio disponibles.</p>
+        </div>
+        <button id="show-transcript">Ver transcripción</button>
+        <div id="video-transcript">
+          <strong>Transcripción:</strong>
+          <pre id="transcript-content" style="white-space: pre-wrap; font-family: inherit;"></pre>
+        </div>
       </div>
+      <script>
+        document.getElementById('show-transcript').addEventListener('click', function() {
+          var transcript = document.getElementById('video-transcript');
+          var content = document.getElementById('transcript-content');
+          if (transcript.style.display === 'none') {
+            if (!content.textContent.trim()) {
+              fetch('assets/transcripcion.txt')
+                .then(response => response.text())
+                .then(text => { content.textContent = text; });
+            }
+            transcript.style.display = 'block';
+            this.textContent = 'Ocultar transcripción';
+          } else {
+            transcript.style.display = 'none';
+            this.textContent = 'Ver transcripción';
+          }
+        });
+      </script>
     </section>
-
+      
     <section id="audio" aria-label="Sonido ambiental">
       <h2>Sonido Ambiental</h2>
       <audio controls>
@@ -49,26 +117,72 @@
     <section id="formulario">
       <h2>Envía una postal virtual</h2>
       <form aria-label="Formulario para enviar postal">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required aria-required="true">
+        <label for="nombre">Nombre del remitente: (opcional)</label>
+        <input type="text" id="nombre" name="nombre">
 
-        <label for="email">Correo electrónico:</label>
+        <label for="nombreReceptor">Nombre del receptor: (obligatorio)</label>
+        <input type="text" id="nombreReceptor" name="nombreReceptor" required aria-required="true">
+
+        <label for="email">Correo electrónico del receptor: (obligatorio)</label>
         <input type="email" id="email" name="email" required aria-required="true">
 
-        <label for="postal">Selecciona una postal:</label>
-        <select id="postal" name="postal">
-          <option value="assets/alhambra1.png">Vista panorámica</option>
-          <option value="assets/alhambra2.png">Patio de los Leones</option>
-        </select>
 
-        <button type="submit">Enviar postal</button>
+   
+
+        <fieldset>
+          <legend>Selecciona una postal: (obligatorio)</legend>
+        
+          <label>
+            <input type="radio" name="postal" value="assets/alhambra1.png" required>
+            <img src="assets/alhambra1.png" alt="Vista panorámica de la Alhambra" width="300">
+          </label>
+        
+          <label>
+            <input type="radio" name="postal" value="assets/alhambra2.png" required>
+            <img src="assets/alhambra2.png" alt="Patio de los Leones" width="300">
+          </label>
+        </fieldset>
+        
+
+
+        <label for="texto">Texto de la postal: (opcional)</label>
+        <textarea id="texto" name="texto" rows="5"></textarea>
+
+        <button type="submit" name="enviar" value="Enviar Postal">Enviar Postal</button>
       </form>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 La Alhambra de Granada. Todos los derechos reservados.</p>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/WAI_aria_landmarks_logo.svg/512px-WAI_aria_landmarks_logo.svg.png" alt="Logo de accesibilidad conforme a WCAG" width="100">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>La Alhambra de Granada</h3>
+        <p>Monumento histórico y Patrimonio de la Humanidad</p>
+        <p>Calle Real de la Alhambra, s/n, 18009 Granada</p>
+      </div>
+      <div class="footer-col">
+        <h3>Enlaces de interés</h3>
+        <ul>
+          <li><a href="#">Comprar entradas</a></li>
+          <li><a href="#">Historia</a></li>
+          <li><a href="#">Mapa del sitio</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Síguenos</h3>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2025 La Alhambra de Granada. Todos los derechos reservados.</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/WAI_aria_landmarks_logo.svg/512px-WAI_aria_landmarks_logo.svg.png" alt="Logo de accesibilidad conforme a WCAG" width="60">
+    </div>
   </footer>
 </body>
 </html>
