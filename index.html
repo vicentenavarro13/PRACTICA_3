@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Alhambra de Granada</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>La Alhambra de Granada</h1>
+    <nav aria-label="Navegación principal">
+      <ul>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#video">Video</a></li>
+        <li><a href="#audio">Sonido</a></li>
+        <li><a href="#formulario">Enviar postal</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="galeria" aria-label="Galería de imágenes">
+      <h2>Galería</h2>
+      <div class="galeria">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Alhambra_general_view.jpg" alt="Vista general de la Alhambra">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Granada_-_Alhambra_-_Patio_de_los_Leones_07.jpg" alt="Patio de los Leones">
+      </div>
+    </section>
+
+    <section id="video" aria-label="Video promocional">
+      <h2>Video</h2>
+      <div class="video-wrapper">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/vuRmGeYneYw" 
+                title="La Alhambra de Granada" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section id="audio" aria-label="Sonido ambiental">
+      <h2>Sonido Ambiental</h2>
+      <audio controls>
+        <source src="https://www.fesliyanstudios.com/play-mp3/387" type="audio/mpeg">
+        Tu navegador no soporta la etiqueta de audio.
+      </audio>
+    </section>
+
+    <section id="formulario">
+      <h2>Envía una postal virtual</h2>
+      <form aria-label="Formulario para enviar postal">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required aria-required="true">
+
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required aria-required="true">
+
+        <label for="postal">Selecciona una postal:</label>
+        <select id="postal" name="postal">
+          <option value="alhambra1.jpg">Vista panorámica</option>
+          <option value="alhambra2.jpg">Patio de los Leones</option>
+        </select>
+
+        <button type="submit">Enviar postal</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 La Alhambra de Granada. Todos los derechos reservados.</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/WAI_aria_landmarks_logo.svg/512px-WAI_aria_landmarks_logo.svg.png" alt="Logo de accesibilidad conforme a WCAG" width="100">
+  </footer>
+</body>
+</html>
