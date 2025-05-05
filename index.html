@@ -23,18 +23,18 @@
     <section id="galeria" aria-label="Galería de imágenes">
       <h2>Galería</h2>
       <div class="galeria">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Alhambra_general_view.jpg" alt="Vista general de la Alhambra">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Granada_-_Alhambra_-_Patio_de_los_Leones_07.jpg" alt="Patio de los Leones">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Dawn_Charles_V_Palace_Alhambra_Granada_Andalusia_Spain.jpg" alt="Vista general de la Alhambra">
+        <img src="https://www.andalucia.com/sites/default/files/MVC140210092-Alhambra-patio-de-los-leones-by-Michelle-chaplow.jpg" alt="Patio de los Leones">
       </div>
     </section>
 
     <section id="video" aria-label="Video promocional">
       <h2>Video</h2>
       <div class="video-wrapper">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/vuRmGeYneYw" 
-                title="La Alhambra de Granada" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+        <video width="560" height="315" controls>
+          <source src="assets/video.mp4" type="video/mp4">
+          Tu navegador no soporta la etiqueta de video.
+        </video>
       </div>
     </section>
 
@@ -57,8 +57,8 @@
 
         <label for="postal">Selecciona una postal:</label>
         <select id="postal" name="postal">
-          <option value="alhambra1.jpg">Vista panorámica</option>
-          <option value="alhambra2.jpg">Patio de los Leones</option>
+          <option value="assets/alhambra1.png">Vista panorámica</option>
+          <option value="assets/alhambra2.png">Patio de los Leones</option>
         </select>
 
         <button type="submit">Enviar postal</button>
