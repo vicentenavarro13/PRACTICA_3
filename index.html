@@ -26,7 +26,6 @@
     </div>
   </header>
 
-  
   <section class="hero">
     <div class="hero-content">
       <h2>Descubre la magia de La Alhambra</h2>
@@ -36,6 +35,8 @@
   </section>
 
   <main>
+      
+
     <section id="galeria" aria-label="Galería de imágenes">
       <div class="section-header">
         <h2>Galería</h2>
@@ -55,7 +56,7 @@
           </div>
         </div>
         <div class="img-container">
-          <img src="https://www.alhambra.org/img/visita-guiada-alhambra.jpg" alt="Detalles arquitectónicos">
+          <img src="assets/alhambra3.png" alt="Detalles arquitectónicos">
           <div class="overlay">
             <span>Detalles arquitectónicos</span>
           </div>
@@ -69,16 +70,10 @@
         <div class="underline"></div>
       </div>
       <div class="video-wrapper">
-        
-        <video width="560" height="315" controls aria-describedby="video-desc" aria-label="Video promocional de la Alhambra">
-          <source src="assets/video.mp4" type="video/mp4">
-          <track kind="captions" src="assets/video-captions.vtt" srclang="es" label="Español">
-          <track kind="descriptions" src="assets/video-audio-desc.vtt" srclang="es" label="Descripción de audio">
-          Tu navegador no soporta la etiqueta de video.
-        </video>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/t-Ce66T1lgE" title="La Alhambra de Granada - DMAX España" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen aria-describedby="video-desc"></iframe>
         <div id="video-desc">
           <strong>Descripción del video:</strong>
-          <p>Video promocional de la Alhambra con descripciones de audio disponibles.</p>
+          <p>Documental sobre la Alhambra de Granada emitido por DMAX España.</p>
         </div>
         <button id="show-transcript">Ver transcripción</button>
         <div id="video-transcript">
@@ -90,7 +85,7 @@
         document.getElementById('show-transcript').addEventListener('click', function() {
           var transcript = document.getElementById('video-transcript');
           var content = document.getElementById('transcript-content');
-          if (transcript.style.display === 'none') {
+          if (transcript.style.display === 'none' || transcript.style.display === '') {
             if (!content.textContent.trim()) {
               fetch('assets/transcripcion.txt')
                 .then(response => response.text())
@@ -107,11 +102,19 @@
     </section>
       
     <section id="audio" aria-label="Sonido ambiental">
-      <h2>Sonido Ambiental</h2>
+      <div class="section-header">
+        <h2>Sonidos de la Alhambra</h2>
+        <div class="underline"></div>
+      </div>
+      
+      <p>Disfruta del sonido de las fuentes y guitarras, tan característico de la Alhambra.</p>
+      
       <audio controls>
-        <source src="https://www.fesliyanstudios.com/play-mp3/387" type="audio/mpeg">
+        <source src="assets/sonido.wav" type="audio/wav">
         Tu navegador no soporta la etiqueta de audio.
       </audio>
+      
+      <p class="audio-credit">Sonido: <a href="https://freesound.org/people/eltenjohn/sounds/258232/" target="_blank">Water Alhambra por eltenjohn</a>, bajo licencia <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a></p>
     </section>
 
     <section id="formulario">
@@ -148,6 +151,8 @@
       </form>
     </section>
   </main>
+
+  
 
   <footer>
     <div class="footer-container">
