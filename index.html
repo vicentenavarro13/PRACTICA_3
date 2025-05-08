@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Alhambra de Granada</title>
+    <meta name="description" content="Explora la Alhambra de Granada, Patrimonio de la Humanidad, a través de imágenes, videos y sonidos">
+    <meta name="language" content="es">
+    <meta name="robots" content="index, follow">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
   </head>
 <body>
+
   <header>
     <div class="header-container">
       <div class="logo">
@@ -17,16 +21,16 @@
       </div>
       <nav aria-label="Navegación principal">
         <ul>
-          <li><a href="#galeria"><i class="fas fa-images"></i> Galería</a></li>
-          <li><a href="#video"><i class="fas fa-video"></i> Video</a></li>
-          <li><a href="#audio"><i class="fas fa-volume-up"></i> Sonido</a></li>
-          <li><a href="#formulario"><i class="fas fa-envelope"></i> Postal</a></li>
+          <li><a href="#galeria" title="Ver galería de imágenes de la Alhambra"><i class="fas fa-images" aria-hidden="true"></i> <span>Galería de la Alhambra</span></a></li>
+          <li><a href="#video" title="Ver video promocional de la Alhambra"><i class="fas fa-video" aria-hidden="true"></i> <span>Video promocional</span></a></li>
+          <li><a href="#audio" title="Escuchar sonidos ambientales de la Alhambra"><i class="fas fa-volume-up" aria-hidden="true"></i> <span>Sonidos ambientales</span></a></li>
+          <li><a href="#formulario" title="Enviar una postal virtual de la Alhambra"><i class="fas fa-envelope" aria-hidden="true"></i> <span>Enviar postal</span></a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <section class="hero">
+  <section class="hero" aria-label="Imagen destacada de la Alhambra">
     <div class="hero-content">
       <h2>Descubre la magia de La Alhambra</h2>
       <p>Joya arquitectónica de Granada y maravilla del mundo</p>
@@ -34,8 +38,8 @@
     </div>
   </section>
 
-  <main>
-      
+  <main id="main-content" role="main" aria-label="Contenido principal">
+ 
 
     <section id="galeria" aria-label="Galería de imágenes">
       <div class="section-header">
@@ -44,21 +48,42 @@
       </div>
       <div class="galeria">
         <div class="img-container">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Dawn_Charles_V_Palace_Alhambra_Granada_Andalusia_Spain.jpg" alt="Vista general de la Alhambra">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Dawn_Charles_V_Palace_Alhambra_Granada_Andalusia_Spain.jpg" 
+               alt="Amanecer en el Palacio de Carlos V de la Alhambra, con sus imponentes muros de piedra iluminados por la luz del alba"
+               title="Vista panorámica del Palacio de Carlos V">
           <div class="overlay">
-            <span>Vista General</span>
+            <span class="sr-only">Explorar vista general de la Alhambra</span>
+            <span aria-hidden="true">Vista General</span>
           </div>
         </div>
+        
         <div class="img-container">
-          <img src="https://www.andalucia.com/sites/default/files/MVC140210092-Alhambra-patio-de-los-leones-by-Michelle-chaplow.jpg" alt="Patio de los Leones">
+          <img src="https://www.andalucia.com/sites/default/files/MVC140210092-Alhambra-patio-de-los-leones-by-Michelle-chaplow.jpg" 
+               alt="Patio de los Leones, fuente central y columnas de mármol"
+               title="Vista del famoso Patio de los Leones">
           <div class="overlay">
-            <span>Patio de los Leones</span>
+            <span class="sr-only">Explorar el Patio de los Leones</span>
+            <span aria-hidden="true">Patio de los Leones</span>
           </div>
         </div>
+        
         <div class="img-container">
-          <img src="assets/alhambra3.png" alt="Detalles arquitectónicos">
+          <img src="assets/alhambra3.png" 
+               alt="Detalles arquitectónicos de la Alhambra, arcos y decoraciones en yesería"
+               title="Detalles de la arquitectura nazarí">
           <div class="overlay">
-            <span>Detalles arquitectónicos</span>
+            <span class="sr-only">Explorar los detalles arquitectónicos de la Alhambra</span>
+            <span aria-hidden="true">Detalles arquitectónicos</span>
+          </div>
+        </div>
+
+        <div class="img-container">
+          <img src="https://cdn.kimkim.com/files/a/images/894b11252e0c5b3c4829352dc434a217b08f85e2/big-bbdcc41e16ba96e757dfe2aeea5020aa.jpg" 
+               alt="Jardines del Generalife con fuentes y vegetación exuberante, mostrando la perfecta armonía entre agua y naturaleza"
+               title="Jardines y fuentes del Generalife">
+          <div class="overlay">
+            <span class="sr-only">Explorar los jardines del Generalife</span>
+            <span aria-hidden="true">Jardines del Generalife</span>
           </div>
         </div>
       </div>
@@ -70,13 +95,16 @@
         <div class="underline"></div>
       </div>
       <div class="video-wrapper">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/t-Ce66T1lgE" title="La Alhambra de Granada - DMAX España" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen aria-describedby="video-desc"></iframe>
+        <video id="alhambra-video" controls aria-describedby="video-desc" width="360" height="640" poster="assets/video-poster.jpg" lang="es" xml:lang="es">
+          <source src="assets/video.mp4" type="video/mp4">
+          Tu navegador no soporta el elemento de video.
+        </video>
         <div id="video-desc">
           <strong>Descripción del video:</strong>
-          <p>Documental sobre la Alhambra de Granada emitido por DMAX España.</p>
+          <p>Video promocional sobre la Alhambra de Granada. El video muestra vistas panorámicas, detalles arquitectónicos y escenas de los jardines.</p>
         </div>
-        <button id="show-transcript">Ver transcripción</button>
-        <div id="video-transcript">
+        <button id="show-transcript" aria-controls="video-transcript">Ver transcripción</button>
+        <div id="video-transcript" style="display:none;">
           <strong>Transcripción:</strong>
           <pre id="transcript-content" style="white-space: pre-wrap; font-family: inherit;"></pre>
         </div>
@@ -106,77 +134,93 @@
         <h2>Sonidos de la Alhambra</h2>
         <div class="underline"></div>
       </div>
-      
       <p>Disfruta del sonido de las fuentes y guitarras, tan característico de la Alhambra.</p>
-      
-      <audio controls>
+      <audio controls aria-describedby="audio-desc" lang="es" xml:lang="es">
         <source src="assets/sonido.wav" type="audio/wav">
         Tu navegador no soporta la etiqueta de audio.
       </audio>
-      
-      <p class="audio-credit">Sonido: <a href="https://freesound.org/people/eltenjohn/sounds/258232/" target="_blank">Water Alhambra por eltenjohn</a>, bajo licencia <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a></p>
+      <div id="audio-desc" class="sr-only">
+        Sonido ambiental grabado en la Alhambra: agua de fuentes y música de guitarra española.
+      </div>
+      <p class="audio-credit">
+        Sonido: 
+        <span lang="en" xml:lang="en">
+        <a href="https://freesound.org/people/eltenjohn/sounds/258232/" target="_blank" rel="noopener">Water Alhambra por eltenjohn</a>,
+        </span>
+        bajo licencia 
+        <span lang="en" xml:lang="en">
+        <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener">CC BY 3.0</a>
+        </span>
+      </p>
     </section>
 
-    <section id="formulario">
-      <h2>Envía una postal virtual</h2>
-      <form aria-label="Formulario para enviar postal">
+    <section id="formulario" aria-labelledby="formulario-titulo">
+      <div class="section-header">
+        <h2 id="formulario-titulo">Envía una postal virtual</h2>
+        <div class="underline"></div>
+      </div>
+      <a href="#nombreReceptor" class="skip-link">Saltar al formulario</a>
+      <form aria-label="Formulario para enviar postal" id="postal-form" autocomplete="on" novalidate>
         <label for="nombre">Nombre del remitente: (opcional)</label>
-        <input type="text" id="nombre" name="nombre">
+        <input type="text" id="nombre" name="nombre" aria-describedby="nombre-desc">
+        <small id="nombre-desc">Puedes dejarlo en blanco si lo deseas.</small>
 
         <label for="nombreReceptor">Nombre del receptor: (obligatorio)</label>
-        <input type="text" id="nombreReceptor" name="nombreReceptor" required aria-required="true">
+        <input type="text" id="nombreReceptor" name="nombreReceptor" required aria-required="true" aria-describedby="receptor-desc">
+        <small id="receptor-desc">Introduce el nombre completo del destinatario.</small>
 
         <label for="email">Correo electrónico del receptor: (obligatorio)</label>
-        <input type="email" id="email" name="email" required aria-required="true">
+        <input type="email" id="email" name="email" required aria-required="true" aria-describedby="email-desc">
+        <small id="email-desc">Ejemplo: juan@example.com</small>
 
         <fieldset>
           <legend>Selecciona una postal: (obligatorio)</legend>
-        
-          <label>
-            <input type="radio" name="postal" value="assets/alhambra1.png" required>
-            <img src="assets/alhambra1.png" alt="Vista panorámica de la Alhambra" width="300">
+          <label for="postal1">
+            <input type="radio" id="postal1" name="postal" value="assets/alhambra1.png" required>
+            <img src="assets/alhambra1.png" alt="Vista panorámica de la Alhambra, opción de postal" width="300">
           </label>
-        
-          <label>
-            <input type="radio" name="postal" value="assets/alhambra2.png" required>
-            <img src="assets/alhambra2.png" alt="Patio de los Leones" width="300">
+          <label for="postal2">
+            <input type="radio" id="postal2" name="postal" value="assets/alhambra2.png" required>
+            <img src="assets/alhambra2.png" alt="Patio de los Leones, opción de postal" width="300">
           </label>
         </fieldset>
-        
 
         <label for="texto">Texto de la postal: (opcional)</label>
-        <textarea id="texto" name="texto" rows="5"></textarea>
+        <textarea id="texto" name="texto" rows="5" aria-describedby="texto-desc"></textarea>
+        <small id="texto-desc">Puedes incluir un mensaje personal para el destinatario.</small>
+
+        <div id="form-error" role="alert" aria-live="assertive" style="color: red;"></div>
 
         <button type="submit" name="enviar" value="Enviar Postal">Enviar Postal</button>
       </form>
     </section>
   </main>
 
-  
-
   <footer>
     <div class="footer-container">
       <div class="footer-col">
         <h3>La Alhambra de Granada</h3>
-        <p>Monumento histórico y Patrimonio de la Humanidad</p>
-        <p>Calle Real de la Alhambra, s/n, 18009 Granada</p>
+        <p>Monumento histórico y <strong>Patrimonio de la Humanidad</strong></p>
+        <address>
+          <p>Calle Real de la Alhambra, s/n, 18009 Granada</p>
+        </address>
       </div>
       <div class="footer-col">
         <h3>Enlaces de interés</h3>
         <ul>
-          <li><a href="#">Comprar entradas</a></li>
-          <li><a href="#">Historia</a></li>
-          <li><a href="#">Mapa del sitio</a></li>
-          <li><a href="#">Contacto</a></li>
+          <li><a href="#galeria">Galería</a></li>
+          <li><a href="#video">Video</a></li>
+          <li><a href="#audio">Sonido</a></li>
+          <li><a href="#formulario">Postal virtual</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h3>Síguenos</h3>
         <div class="social-links">
-          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
@@ -185,5 +229,43 @@
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/WAI_aria_landmarks_logo.svg/512px-WAI_aria_landmarks_logo.svg.png" alt="Logo de accesibilidad conforme a WCAG" width="60">
     </div>
   </footer>
+  <script>
+    // Validación accesible del formulario
+    document.getElementById('postal-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      let isValid = true;
+      let errorMsg = '';
+      const nombreReceptor = document.getElementById('nombreReceptor');
+      const email = document.getElementById('email');
+      const postalOptions = document.querySelectorAll('input[name="postal"]');
+      let postalSelected = false;
+      postalOptions.forEach(option => { if (option.checked) postalSelected = true; });
+
+      if (!nombreReceptor.value.trim()) {
+        isValid = false;
+        errorMsg += 'Por favor, introduce el nombre del receptor.<br>';
+      }
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email.value.trim() || !emailPattern.test(email.value)) {
+        isValid = false;
+        errorMsg += 'Por favor, introduce un correo electrónico válido.<br>';
+      }
+      if (!postalSelected) {
+        isValid = false;
+        errorMsg += 'Por favor, selecciona una postal.<br>';
+      }
+      const errorDiv = document.getElementById('form-error');
+      if (!isValid) {
+        errorDiv.innerHTML = errorMsg;
+        errorDiv.style.display = 'block';
+        errorDiv.focus();
+      } else {
+        errorDiv.style.display = 'none';
+        errorDiv.innerHTML = '';
+        alert('¡Postal enviada correctamente!');
+        this.reset();
+      }
+    });
+  </script>
 </body>
 </html>
