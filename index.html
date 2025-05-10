@@ -162,15 +162,15 @@
       <a href="#nombreReceptor" class="skip-link">Saltar al formulario</a>
       <form aria-label="Formulario para enviar postal" id="postal-form" autocomplete="on" novalidate>
         <label for="nombre">Nombre del remitente: (opcional)</label>
-        <input type="text" id="nombre" name="nombre" aria-describedby="nombre-desc">
+        <input type="text" id="nombre" name="nombre" aria-describedby="nombre-desc" autocomplete="name">
         <small id="nombre-desc">Puedes dejarlo en blanco si lo deseas.</small>
 
         <label for="nombreReceptor">Nombre del receptor: (obligatorio)</label>
-        <input type="text" id="nombreReceptor" name="nombreReceptor" required aria-required="true" aria-describedby="receptor-desc">
+        <input type="text" id="nombreReceptor" name="nombreReceptor" required aria-required="true" aria-describedby="receptor-desc" autocomplete="name">
         <small id="receptor-desc">Introduce el nombre completo del destinatario.</small>
 
         <label for="email">Correo electrónico del receptor: (obligatorio)</label>
-        <input type="email" id="email" name="email" required aria-required="true" aria-describedby="email-desc">
+        <input type="email" id="email" name="email" required aria-required="true" aria-describedby="email-desc" autocomplete="email">
         <small id="email-desc">Ejemplo: juan@example.com</small>
 
         <fieldset>
@@ -190,8 +190,10 @@
         <small id="texto-desc">Puedes incluir un mensaje personal para el destinatario.</small>
 
         <div id="form-error" role="alert" aria-live="assertive" style="color: red;"></div>
+        <div id="form-success" role="status" aria-live="polite" style="color: green; display: none;"></div>
 
-        <button type="submit" name="enviar" value="Enviar Postal">Enviar Postal</button>
+
+        <button type="submit" name="enviar" value="Enviar Postal" aria-label="Enviar postal">Enviar Postal</button>
       </form>
     </section>
   </main>
@@ -214,15 +216,7 @@
           <li><a href="#formulario">Postal virtual</a></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <h3>Síguenos</h3>
-        <div class="social-links">
-          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
-          <a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-          <a href="#" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-          <a href="#" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
-        </div>
-      </div>
+
     </div>
     <div class="copyright">
       <p>&copy; 2025 La Alhambra de Granada. Todos los derechos reservados.</p>
@@ -262,8 +256,10 @@
       } else {
         errorDiv.style.display = 'none';
         errorDiv.innerHTML = '';
-        alert('¡Postal enviada correctamente!');
-        this.reset();
+        const successDiv = document.getElementById('form-success');
+      successDiv.innerHTML = '¡Postal enviada correctamente!';
+      successDiv.style.display = 'block';
+      this.reset();
       }
     });
   </script>
