@@ -95,7 +95,7 @@
         <div class="underline"></div>
       </div>
       <div class="video-wrapper">
-        <video id="alhambra-video" controls aria-describedby="video-desc" width="360" height="640" poster="assets/video-poster.jpg" lang="es" xml:lang="es">
+        <video id="alhambra-video" controls aria-describedby="video-desc" width="360" height="640" lang="es" xml:lang="es">
           <source src="assets/video.mp4" type="video/mp4">
           Tu navegador no soporta el elemento de video.
         </video>
@@ -106,19 +106,15 @@
         <button id="show-transcript" aria-controls="video-transcript">Ver transcripción</button>
         <div id="video-transcript" style="display:none;">
           <strong>Transcripción:</strong>
-          <pre id="transcript-content" style="white-space: pre-wrap; font-family: inherit;"></pre>
+          <pre id="transcript-content" style="white-space: pre-wrap; font-family: inherit;">En tu visita a Granada, es probable que escuches mencionar que La Alhambra es una ciudad palatina. Te cuento qué significa esto exactamente. Una ciudad palatina es el resultado del desarrollo de una serie de construcciones, encargadas por los gobernantes, con el fin de exhibir su poder, influencia, riqueza y buen gusto. Las ciudades palatinas son diseñadas como lugares idílicos, donde cualquiera desearía vivir. Los nazaríes construyeron la Alhambra como un sistema urbano independiente de la ciudad de Granada, con el objetivo de que fuera un símbolo de poder distintivo para legitimar y consolidar su linaje. Si bien puede parecer austera desde el exterior, su interior revela una belleza exótica que la hace verdaderamente única. La Alhambra se considera una ciudad palatina porque fue diseñada para albergar la sede de la Jefatura del Estado y la Corte.
+            Dentro de sus imponentes murallas, encontramos palacios, viviendas, mezquitas, aljibes, y el resto de construcciones de cualquier ciudad de la época. Este complejo fue el hogar de la familia real, altos funcionarios y los artesanos y obreros encargados de su mantenimiento. En resumen, La Alhambra no es solo un palacio, sino una ciudad en sí misma. Una ciudad palatina que representa un impresionante testimonio del poder y la belleza de la época nazarí en Granada
+          </pre>
         </div>
       </div>
       <script>
-        document.getElementById('show-transcript').addEventListener('click', function() {
+        document.getElementById('show-transcript').addEventListener('click', function () {
           var transcript = document.getElementById('video-transcript');
-          var content = document.getElementById('transcript-content');
           if (transcript.style.display === 'none' || transcript.style.display === '') {
-            if (!content.textContent.trim()) {
-              fetch('assets/transcripcion.txt')
-                .then(response => response.text())
-                .then(text => { content.textContent = text; });
-            }
             transcript.style.display = 'block';
             this.textContent = 'Ocultar transcripción';
           } else {
@@ -127,6 +123,7 @@
           }
         });
       </script>
+
     </section>
       
     <section id="audio" aria-label="Sonido ambiental">
